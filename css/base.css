@@ -92,6 +92,8 @@ img, svg, video{ display: block; max-width: 100%; }
 a{ color: inherit; }
 button, input, textarea, select{ font: inherit; color: inherit; }
 :focus-visible{ outline: 2px solid var(--g07); outline-offset: 3px; }
+/* Fotos en AVIF con respaldo JPG (Fase 4): <picture> no genera caja, así la <img> se ordena como antes */
+picture{ display: contents; }
 .visualmente-oculto{
   position: absolute !important; width: 1px; height: 1px; overflow: hidden;
   clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
