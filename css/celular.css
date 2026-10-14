@@ -260,7 +260,17 @@ html, body{ overflow-x: clip; }
   justify-content: space-between; align-items: center; min-height: 54px; padding: 6px 6px 6px 22px; border-radius: 999px;
   background: var(--turquesa-oscuro); color: var(--blanco); text-decoration: none; font-weight: 600; font-size: 15px;
   box-shadow: 0 6px 24px rgba(11, 52, 57, .35);
-  transform: translateY(160%); transition: transform .5s var(--curva-salida);
+  /* Entrada "se arma" (decidida 13.10): la píldora sube desde bajo la zona segura, el texto entra desde la izquierda
+     y el círculo crece; al esconderse baja y se desvanece de una vez */
+  opacity: 0; transform: translateY(calc(100% + 40px + env(safe-area-inset-bottom)));
+  transition: transform .55s var(--curva), opacity .35s var(--curva);
 }
-.barra-cta.visible{ transform: none; }
+.barra-cta.visible{ opacity: 1; transform: none; transition: transform .75s var(--curva-salida), opacity .4s var(--curva); }
+.barra-cta > span:first-child{ display: inline-block; opacity: 0; transform: translateX(-14px); transition: opacity .3s, transform .3s; }
+.barra-cta.visible > span:first-child{ opacity: 1; transform: none; transition: opacity .5s var(--curva) .2s, transform .6s var(--curva-salida) .2s; }
+.barra-cta .circulo{ transform: scale(.4); opacity: 0; transition: transform .3s, opacity .3s; }
+.barra-cta.visible .circulo{ transform: none; opacity: 1; transition: transform .6s var(--curva-salida) .3s, opacity .3s var(--curva) .3s; }
 .barra-cta .circulo{ width: 42px; height: 42px; border-radius: 50%; background: var(--blanco); color: var(--turquesa-oscuro); display: grid; place-items: center; }
+
+/* Foto "Abastecimiento B2B" (13.10): el camión centrado en la tarjeta vertical */
+.s-quees .b-b img{ object-position: 71% 50%; }
