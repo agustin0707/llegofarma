@@ -119,6 +119,15 @@
 .s-valor .pilar{ position: relative; min-height: 560px; display: flex; flex-direction: column; justify-content: space-between; padding: 36px var(--celda) 44px; }
 .s-valor .pilar h3{ font-weight: 300; font-size: clamp(28px, 2.6vw, 40px); line-height: 1.05; letter-spacing: -.025em; margin-bottom: 18px; }
 .s-valor .pilar p{ font-size: var(--t-chico); line-height: 1.6; max-width: 30ch; opacity: .92; }
+/* Títulos y descripciones a la misma altura en los cuatro pilares (13.10): los pilares comparten las filas de la grilla
+   (ícono, espacio, título, descripción) con subgrid; el texto sigue siendo un solo bloque para su entrada animada */
+@media (min-width: 768px){
+  /* el alto mínimo va en la grilla: con subgrid, el del pilar ya no estira la fila central (--alto-pilar por fila de pilares) */
+  .s-valor .pilares{ grid-template-rows: auto 1fr auto auto; min-height: calc(var(--filas-pilar, 1) * var(--alto-pilar, 560px)); }
+  .s-valor .pilar{ display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; }
+  .s-valor .pilar .marca{ grid-row: 1; }
+  .s-valor .pilar > div{ grid-row: 3 / span 2; display: grid; grid-template-rows: subgrid; row-gap: 0; }
+}
 /* Ícono de cada pilar (Phosphor Regular, 26 px) en una caja fija para que la ruta pase por su eje */
 .s-valor .pilar .marca{ position: relative; z-index: 2; display: flex; align-items: center; height: 26px; }
 .s-valor .pilar .icono{ display: block; width: 26px; height: 26px; fill: currentColor; transition: scale var(--dur-2) var(--curva-salida), opacity var(--dur-2) var(--curva); }

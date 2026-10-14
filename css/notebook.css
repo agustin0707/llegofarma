@@ -9,6 +9,7 @@
 
 /* 02 (P1): pilares de 420 px, como en tablet; la sección cabe mejor en pantallas bajas */
 .s-valor .pilar{ min-height: 420px; }
+.s-valor{ --alto-pilar: 420px; }   /* lo mismo para la grilla alineada (13.10) */
 
 /* 05 (F1): foto de flota más alta (3:1); se ven los furgones bajo las cifras */
 .s-exp .flota{ aspect-ratio: 3 / 1; }

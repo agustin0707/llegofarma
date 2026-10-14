@@ -40,6 +40,8 @@
 
 /* 02 (V1): pilares en 2 × 2, con línea cortada entre las dos filas */
 .s-valor .pilar{ grid-column: span 2; min-height: 360px; }
+.s-valor .pilares{ grid-template-rows: repeat(2, auto 1fr auto auto); }   /* 2 × 2: cada fila de pilares alinea sus títulos y descripciones (13.10) */
+.s-valor{ --filas-pilar: 2; --alto-pilar: 360px; }
 .s-valor .pilar p{ max-width: 34ch; }
 .s-valor .pilar:nth-child(n+3)::before{ content: ""; position: absolute; top: 0; left: 8px; right: 8px; height: 1px; background: var(--linea); }
 
@@ -88,6 +90,7 @@
 @media (min-width: 1024px){
 .hdr .meta{ visibility: hidden; }                                      /* D1: sin el texto del centro (se cortaba en dos líneas) */
 .s-valor .pilar{ min-height: 420px; }                                  /* A1: la sección cabe en la pantalla */
+.s-valor{ --alto-pilar: 420px; }
 .s-tecno .seguimiento .hito text{ display: none; }                     /* C1: solo íconos en los hitos (los rótulos quedaban en ~8 px) */
 .s-tecno .seguimiento .estado-grande{ font-size: 48px; }
 .s-exp .flota{ aspect-ratio: 3 / 1; }                                  /* F1: foto más alta, se ven los furgones bajo las cifras */
