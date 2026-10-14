@@ -43,6 +43,9 @@
   transition: opacity .8s var(--curva-salida) calc(.35s + var(--i, 0) * .55s), transform .9s var(--curva-salida) calc(.35s + var(--i, 0) * .55s);
 }
 @media (hover: hover) and (pointer: fine){ .m-reticula .s-valor .pilares.ruta-on:has(.pilar:hover) .pilar:not(:hover) > div{ opacity: .4; transition-delay: 0s; } }
+/* después de la entrada (clase .ruta-lista, js/movimiento.js), el hover "foco" responde de inmediato al entrar y al salir (13.10) */
+.m-reticula .s-valor .pilares.ruta-lista .pilar > div{ transition: opacity .3s var(--curva), transform .9s var(--curva-salida); }
+.m-reticula .s-valor .pilares.ruta-lista .pilar .icono{ transition: scale .45s var(--curva-salida), opacity .3s var(--curva); }
 
 /* 2c. Hitos cumplidos (Calidad): el ícono de cada fila parte tenue y se enciende cuando la fila llega a media pantalla */
 .m-reticula .s-calidad .lista-fila .icono{ opacity: .35; }
