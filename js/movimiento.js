@@ -46,7 +46,7 @@
 
   /* ---------- 1. Entradas por bloque ---------- */
   if (CAPAS.entradas) {
-    var selector = 'main .sec:not(.s-hero) .franja, .intro > p, .modulo, .pilar, .lista-fila, .cifra, .paso, .ruta, .categorias li, .campos, .s-calidad .parrafos, .s-calidad .normas, .bajada, .s-pie .columnas > div';
+    var selector = 'main .sec:not(.s-hero) .franja, .intro > p, .modulo, .pilar, .lista-fila, .lc, .cifra, .paso, .ruta, .categorias li, .campos, .s-calidad .parrafos, .s-calidad .normas, .bajada, .s-pie .columnas > div';
     if (!CAPAS.titulos) selector += ', .t-display, .t-h2';
     var bloques = toArray(document.querySelectorAll(selector));
     raiz.classList.add('m-entradas');
@@ -81,7 +81,7 @@
     });
     alEntrar(filas, function (f) { f.classList.add('trazada'); }, '0px 0px -4% 0px');
     /* Calidad: cada fila de la lista se marca como hito cumplido al llegar a media pantalla */
-    alEntrar(toArray(document.querySelectorAll('.s-calidad .lista-fila')), function (f) { f.classList.add('hito'); }, '0px 0px -45% 0px');
+    alEntrar(toArray(document.querySelectorAll('.s-calidad .lc')), function (f) { f.classList.add('hito'); }, '0px 0px -45% 0px');
     /* Ruta de la Propuesta de valor: se dibuja cuando los pilares entran */
     alEntrar(toArray(document.querySelectorAll('.s-valor .pilares')), function (g) { g.classList.add('ruta-on'); }, '0px 0px -25% 0px');
     /* Categorías en celular (M6, 11.10): la línea de avance crece según la lista cruza el 55 % de la pantalla */

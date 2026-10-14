@@ -44,6 +44,10 @@
 
 /* ---------- 01 Qué es ---------- */
 .s-quees .intro{ padding-block: var(--esp-seccion) 64px; row-gap: 40px; }
+/* 14.10: título y párrafos en filas separadas de la retícula, para que cada párrafo quede en su celda */
+.s-quees .intro-titulo{ padding-block: var(--esp-seccion) 56px; }
+.s-quees .intro-parrafos{ padding-block: 0; row-gap: 0; }
+.s-quees .intro-parrafos p{ padding-block: 32px 52px; }   /* opción 1 (14.10): celdas en las columnas 2 a 4 */
 .s-quees .intro h2{ grid-column: 1 / -1; padding-inline: var(--celda); }
 .s-quees .t1{ grid-column: 2; }
 .s-quees .t2{ grid-column: 3; }
@@ -177,14 +181,33 @@
 .s-calidad .clave{ font-weight: 700; }   /* Bold: sobre el turquesa oscuro el SemiBold no se distinguía (11.10) */
 .s-calidad .vertical{ grid-column: 3 / span 2; min-height: 600px; }
 .s-calidad .vertical img{ object-position: 55% 50%; }
-/* Lista: un ícono Phosphor por fila (decidido 11.10): documento, termómetro, ruta y ciclo */
-.s-calidad .lista-fila .k{ padding-top: 30px; }
-.s-calidad .lista-fila .icono{ display: block; width: 24px; height: 24px; fill: currentColor; transition: scale var(--dur-2) var(--curva-salida), opacity .5s var(--curva); }
-.s-calidad .lista-fila > *{ transition: opacity var(--dur-2) var(--curva); }
-/* Hover "foco", como los pilares de la 02: la fila bajo el cursor queda y las otras se atenúan */
+/* Lista: un ícono Phosphor por punto (decidido 11.10): documento, termómetro, ruta y ciclo.
+   14.10, opción 3 "ruta de hitos": los cuatro puntos en columnas (.lista-calidad > .lc), unidos por una ruta que parte
+   de cada ícono, con su número; la ruta se dibuja cuando el punto se enciende (hito). En celular, lista vertical (celular.css) */
+.s-calidad .lc{ position: relative; counter-increment: lc; }
+.s-calidad .lista-calidad{ counter-reset: lc; }
+.s-calidad .lc .k{ display: flex; align-items: center; gap: 12px; }
+.s-calidad .lc .icono{ display: block; width: 24px; height: 24px; fill: currentColor; transition: scale .45s var(--curva-salida), opacity .5s var(--curva); }
+.s-calidad .lc p{ font-size: var(--t-chico); opacity: .9; }
+.s-calidad .lc > *{ transition: opacity .3s var(--curva); }
+@media (min-width: 768px){
+  .s-calidad .lista-calidad{ align-items: stretch; }
+  .s-calidad .lc{ display: flex; flex-direction: column; gap: 14px; padding: 30px var(--celda) 44px; }
+  .s-calidad .lc .k{ height: 24px; margin-bottom: 22px; }
+  .s-calidad .lc .k::before{ content: counter(lc, decimal-leading-zero); order: 2; font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; opacity: .6; }
+  .s-calidad .lc .t-h3{ font-size: 24px; line-height: 1.15; }
+  .s-calidad .lc::after{
+    content: ""; position: absolute; top: calc(30px + 12px); left: calc(var(--celda) + 24px + 12px + 24px); right: 8px; height: 1px;
+    background: currentColor; opacity: .45; transform-origin: 0 50%;
+  }
+  .s-calidad .lc:last-child::after{ background: linear-gradient(90deg, currentColor, transparent); }
+  .m-reticula .s-calidad .lc::after{ transform: scaleX(0); transition: transform .7s var(--curva) .3s; }
+  .m-reticula .s-calidad .lc.hito::after{ transform: none; }
+}
+/* Hover "foco", como los pilares de la 02: el punto bajo el cursor queda y los otros se atenúan */
 @media (hover: hover) and (pointer: fine){
-.s-calidad:has(.lista-fila:hover) .lista-fila:not(:hover) > *{ opacity: .4; }
-.s-calidad .lista-fila:hover .icono{ scale: 1.25; }
+.s-calidad:has(.lc:hover) .lc:not(:hover) > *{ opacity: .4; }
+.s-calidad .lc:hover .icono{ scale: 1.25; }
 }
 
 /* ---------- 04 Tecnología ---------- */

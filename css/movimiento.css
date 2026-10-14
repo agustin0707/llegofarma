@@ -46,8 +46,8 @@
 @keyframes pilar-texto{ from{ opacity: 0; transform: translateY(14px); } }
 
 /* 2c. Hitos cumplidos (Calidad): el ícono de cada fila parte tenue y se enciende cuando la fila llega a media pantalla */
-.m-reticula .s-calidad .lista-fila .icono{ opacity: .35; }
-.m-reticula .s-calidad .lista-fila.hito .icono{ opacity: 1; }
+.m-reticula .s-calidad .lc .icono{ opacity: .35; }
+.m-reticula .s-calidad .lc.hito .icono{ opacity: 1; }
 
 /* 2d. Formulario: los campos entran uno tras otro cuando aparece el panel (la clase .visible la pone la capa de entradas) */
 .m-entradas .s-cta .campos > *{ opacity: 0; transform: translateY(12px); transition: opacity .6s var(--curva-salida) calc(var(--k, 0) * 70ms + .2s), transform .7s var(--curva-salida) calc(var(--k, 0) * 70ms + .2s); }
