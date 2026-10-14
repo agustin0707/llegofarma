@@ -10,7 +10,7 @@ Sitio estático en HTML, CSS y JavaScript. No necesita base de datos, PHP ni com
 
 ## Publicar en 4 pasos
 1. **Subir los archivos.** Copiar todo el contenido de esta carpeta (no la carpeta en sí) a la raíz del hosting, de modo que `index.html` quede en `https://llegofarma.cl/index.html`. Sirve el hosting de Llegó o uno estático (Netlify, Cloudflare Pages, Vercel, GitHub Pages).
-2. **Apuntar el dominio.** En NIC Chile (llegofarma.cl > Administrar > Servidores DNS), poner los DNS del hosting o, si se administra la zona, crear los registros que indique el hosting (normalmente un registro A para `llegofarma.cl` y un CNAME para `www`). El cambio puede tardar de minutos a unas horas.
+2. **Inscribir y apuntar el dominio.** Inscribir llegofarma.cl en NIC Chile a nombre de Llegó, en la cuenta de alguien de la empresa (así queda en manos de Llegó para renovarlo y administrarlo). Después, en NIC Chile (llegofarma.cl > Administrar > Servidores DNS), poner los DNS del hosting o, si se administra la zona, crear los registros que indique el hosting (normalmente un registro A para `llegofarma.cl` y un CNAME para `www`). El cambio puede tardar de minutos a unas horas.
 3. **Activar HTTPS.** Pedir el certificado SSL en el hosting (casi todos lo dan gratis con Let's Encrypt) y forzar `https://`. Que `www.llegofarma.cl` redirija a `https://llegofarma.cl`.
 4. **Redirigir llego.cl/farma.** En el administrador de llego.cl (HubSpot: Configuración > Contenido > Dominios y URL > Redirecciones de URL), crear una redirección permanente (301) de `/farma` a `https://llegofarma.cl`.
 
