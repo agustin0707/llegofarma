@@ -83,11 +83,7 @@
     /* Calidad: cada fila de la lista se marca como hito cumplido al llegar a media pantalla */
     alEntrar(toArray(document.querySelectorAll('.s-calidad .lista-fila')), function (f) { f.classList.add('hito'); }, '0px 0px -45% 0px');
     /* Ruta de la Propuesta de valor: se dibuja cuando los pilares entran */
-    alEntrar(toArray(document.querySelectorAll('.s-valor .pilares')), function (g) {
-      g.classList.add('ruta-on');
-      /* terminada la entrada (último texto: .35 s + 3 × .55 s + .9 s), el hover deja de heredar los retrasos escalonados */
-      setTimeout(function () { g.classList.add('ruta-lista'); }, 3000);
-    }, '0px 0px -25% 0px');
+    alEntrar(toArray(document.querySelectorAll('.s-valor .pilares')), function (g) { g.classList.add('ruta-on'); }, '0px 0px -25% 0px');
     /* Categorías en celular (M6, 11.10): la línea de avance crece según la lista cruza el 55 % de la pantalla */
     var listaCat = document.querySelector('.s-cat .categorias');
     var celular = window.matchMedia('(max-width: 767px)');

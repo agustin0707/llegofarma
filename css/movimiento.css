@@ -29,23 +29,21 @@
 .m-reticula .s-valor .pilar:nth-child(4){ --i: 3; }
 .m-reticula .s-valor .pilar:not(:last-child)::after{ transform: scaleX(0); transform-origin: 0 50%; }
 .m-reticula .s-valor .pilares.ruta-on .pilar:not(:last-child)::after{ transform: none; transition: transform .5s var(--curva) calc(.45s + var(--i, 0) * .55s); }
-.m-reticula .s-valor .pilar .icono{ scale: 0; }
-.m-reticula .s-valor .pilares.ruta-on .pilar .icono{ scale: 1; transition: scale .5s var(--curva-salida) calc(.2s + var(--i, 0) * .55s), opacity var(--dur-2) var(--curva); }
-.m-reticula .s-valor .pilares.ruta-on .pilar:hover .icono{ scale: 1.35; transition-delay: 0s; }
 /* el último tramo sale después del último ícono y se desvanece */
 .m-reticula .s-valor .pilar:last-child::after{ transform: scaleX(0); transform-origin: 0 50%; }
 .m-reticula .s-valor .pilares.ruta-on .pilar:last-child::after{ transform: none; transition: transform .9s var(--curva-salida) calc(.45s + 3 * .55s); }
-/* el texto de cada pilar entra cuando la ruta llega a su ícono (en vez de la entrada por bloque) */
+/* Íconos y textos de los pilares (rehecho 13.10): la entrada es una ANIMACIÓN con relleno hacia atrás, no una transición.
+   Así el hover "foco" (css/secciones.css) usa solo transiciones sin retraso y responde igual en cualquier momento;
+   antes heredaba el retraso escalonado de la entrada (hasta 2 s) y a veces tardaba. Celular tiene su propia entrada (.llego). */
 .m-entradas.m-reticula .s-valor .pilar.rv{ opacity: 1; transform: none; }
-.m-reticula .s-valor .pilar > div{ opacity: 0; transform: translateY(14px); }
-.m-reticula .s-valor .pilares.ruta-on .pilar > div{
-  opacity: 1; transform: none;
-  transition: opacity .8s var(--curva-salida) calc(.35s + var(--i, 0) * .55s), transform .9s var(--curva-salida) calc(.35s + var(--i, 0) * .55s);
+@media (min-width: 768px){
+  .m-reticula .s-valor .pilares:not(.ruta-on) .pilar .icono{ scale: 0; }
+  .m-reticula .s-valor .pilares:not(.ruta-on) .pilar > div{ opacity: 0; }
+  .m-reticula .s-valor .pilares.ruta-on .pilar .icono{ animation: pilar-icono .5s var(--curva-salida) calc(.2s + var(--i, 0) * .55s) backwards; }
+  .m-reticula .s-valor .pilares.ruta-on .pilar > div{ animation: pilar-texto .9s var(--curva-salida) calc(.35s + var(--i, 0) * .55s) backwards; }
 }
-@media (hover: hover) and (pointer: fine){ .m-reticula .s-valor .pilares.ruta-on:has(.pilar:hover) .pilar:not(:hover) > div{ opacity: .4; transition-delay: 0s; } }
-/* después de la entrada (clase .ruta-lista, js/movimiento.js), el hover "foco" responde de inmediato al entrar y al salir (13.10) */
-.m-reticula .s-valor .pilares.ruta-lista .pilar > div{ transition: opacity .3s var(--curva), transform .9s var(--curva-salida); }
-.m-reticula .s-valor .pilares.ruta-lista .pilar .icono{ transition: scale .45s var(--curva-salida), opacity .3s var(--curva); }
+@keyframes pilar-icono{ from{ scale: 0; } }
+@keyframes pilar-texto{ from{ opacity: 0; transform: translateY(14px); } }
 
 /* 2c. Hitos cumplidos (Calidad): el ícono de cada fila parte tenue y se enciende cuando la fila llega a media pantalla */
 .m-reticula .s-calidad .lista-fila .icono{ opacity: .35; }

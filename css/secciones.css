@@ -130,8 +130,8 @@
 }
 /* Ícono de cada pilar (Phosphor Regular, 26 px) en una caja fija para que la ruta pase por su eje */
 .s-valor .pilar .marca{ position: relative; z-index: 2; display: flex; align-items: center; height: 26px; }
-.s-valor .pilar .icono{ display: block; width: 26px; height: 26px; fill: currentColor; transition: scale var(--dur-2) var(--curva-salida), opacity var(--dur-2) var(--curva); }
-.s-valor .pilar > div{ transition: opacity var(--dur-2) var(--curva); }
+.s-valor .pilar .icono{ display: block; width: 26px; height: 26px; fill: currentColor; transition: scale .45s var(--curva-salida), opacity .3s var(--curva); }
+.s-valor .pilar > div{ transition: opacity .3s var(--curva); }
 /* Hover (decidido 10.10, "foco"): el pilar bajo el cursor queda y los otros se atenúan; su ícono crece */
 @media (hover: hover) and (pointer: fine){   /* con dedo, el hover quedaría pegado al tocar */
 .s-valor .pilares:has(.pilar:hover) .pilar:not(:hover) > div,
