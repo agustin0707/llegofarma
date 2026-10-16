@@ -10,7 +10,7 @@ Sitio estático en HTML, CSS y JavaScript. No necesita base de datos, PHP ni com
 
 ## Publicar en 4 pasos
 1. **Subir los archivos.** Copiar todo el contenido de esta carpeta (no la carpeta en sí) a la raíz del hosting, de modo que `index.html` quede en `https://llegofarma.cl/index.html`. Sirve el hosting de Llegó o uno estático (Netlify, Cloudflare Pages, Vercel, GitHub Pages).
-2. **Inscribir y apuntar el dominio.** Inscribir llegofarma.cl en NIC Chile a nombre de Llegó, en la cuenta de alguien de la empresa (así queda en manos de Llegó para renovarlo y administrarlo). Después, en NIC Chile (llegofarma.cl > Administrar > Servidores DNS), poner los DNS del hosting o, si se administra la zona, crear los registros que indique el hosting (normalmente un registro A para `llegofarma.cl` y un CNAME para `www`). El cambio puede tardar de minutos a unas horas.
+2. **Apuntar el dominio.** llegofarma.cl ya está inscrito en NIC Chile a nombre de Servicios Logísticos DGA SpA (octubre 2026). En NIC Chile (llegofarma.cl > Administrar > Servidores DNS), poner los DNS del hosting o, si se administra la zona, crear los registros que indique el hosting (normalmente un registro A para `llegofarma.cl` y un CNAME para `www`). El cambio puede tardar de minutos a unas horas.
 3. **Activar HTTPS.** Pedir el certificado SSL en el hosting (casi todos lo dan gratis con Let's Encrypt) y forzar `https://`. Que `www.llegofarma.cl` redirija a `https://llegofarma.cl`.
 4. **Redirigir llego.cl/farma.** En el administrador de llego.cl (HubSpot: Configuración > Contenido > Dominios y URL > Redirecciones de URL), crear una redirección permanente (301) de `/farma` a `https://llegofarma.cl`.
 
@@ -22,11 +22,11 @@ Sitio estático en HTML, CSS y JavaScript. No necesita base de datos, PHP ni com
 - [ ] Escanear el QR de la feria y confirmar que abre https://llegofarma.cl.
 
 ## Formulario de contacto
-- Funciona con **Formspree** (formspree.io). La dirección del formulario está en `index.html`, en el atributo `action` del formulario: `https://formspree.io/f/xrpeaokz`.
+- Funciona con **Formspree** (formspree.io). La dirección del formulario está en `index.html`, en el atributo `action` del formulario: `https://formspree.io/f/mgaorkeo`.
 - Los mensajes llegan a **contacto@llego.cl**. El correo de destino se cambia en la cuenta de Formspree (Workflow > Email), no en el código.
-- Plan gratis: hasta 50 mensajes al mes y un solo correo de destino. Si se necesita más, se cambia el plan en Formspree sin tocar el sitio.
+- El límite de mensajes al mes depende del plan contratado en Formspree. El plan se cambia en Formspree sin tocar el sitio.
 - Protección contra spam: filtro de Formspree y un campo oculto para robots. No usa CAPTCHA.
-- La cuenta de Formspree hoy está a nombre de Agustín Avendaño. Si Llegó prefiere administrarla, se puede crear el formulario en una cuenta de Llegó y cambiar la dirección en `index.html`.
+- La cuenta y el formulario de Formspree son de Llegó (octubre 2026). Si alguna vez se crea otro formulario, basta con cambiar la dirección en `index.html`.
 
 ## Medición (Google Analytics o LinkedIn)
 El sitio no mide visitas por ahora. Cuando Llegó tenga los códigos, se pegan donde lo indica el comentario "Medición" dentro del `<head>` de `index.html`, y lo mismo en `privacidad.html`. Si se usan cookies de medición, conviene revisar que la Política de Privacidad lo cubra.
